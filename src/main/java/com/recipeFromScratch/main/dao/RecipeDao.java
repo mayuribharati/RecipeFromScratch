@@ -2,10 +2,11 @@ package com.recipeFromScratch.main.dao;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.recipeFromScratch.main.bean.Ingredient;
+//import com.recipeFromScratch.main.bean.Ingredient;
 import com.recipeFromScratch.main.bean.Recipe;
 @Repository
 public class RecipeDao {
@@ -14,7 +15,7 @@ public class RecipeDao {
 	private RecipeDaoImplimentation recipeRepository;
 	
 	@Autowired
-	private IngredientDaoImplemetation ingredienRepository;
+	//private IngredientDaoImplemetation ingredienRepository;
 	
 	public List<Recipe> getAllRecipe() {
 		// TODO Auto-generated method stub

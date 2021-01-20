@@ -12,9 +12,8 @@ public class MainApplication {
 		SpringApplication.run(MainApplication.class, args);
 	
 	System.out.println("SYSTEM Started ");
+	System.out.println("SBOOT STARTED");
 	
-	
-	System.out.println("Succcess");
 	
 	}
 

@@ -1,11 +1,12 @@
 package com.recipeFromScratch.main.controller;
 
 import java.util.ArrayList;
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -46,7 +47,16 @@ public ArrayList<User> getAllUser()
 	
 }
 
+@DeleteMapping("deleteUser/{id}")
+public void deleteUser(@PathVariable ("id") int id)
+{
 
+	 Optional<User> u =Udao.getById(id);
+	 
+	 User usr = u.get();
+	Sdao.deleteById(usr.getStore().getStore_id());
+	Udao.deleteById(id);
+}
 	
 	
 	

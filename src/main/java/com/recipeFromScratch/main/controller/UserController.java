@@ -32,7 +32,7 @@ public @ResponseBody void addUser(@RequestBody User usr )
 {
 Udao.addUser(usr);
 //Sdao.addStore(usr.getStore());
-//System.out.println(usr.getStore());
+System.out.println(usr.getStore());
 	System.out.println(usr);
 }
 

@@ -1,7 +1,7 @@
 package com.recipeFromScratch.main.bean;
 
 import javax.annotation.Generated;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
 import javax.persistence.Entity;
@@ -34,7 +34,7 @@ public class User
 	@Column
 	private String Type;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="store_id")
 	private Store store;
 	

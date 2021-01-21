@@ -1,13 +1,29 @@
 package com.recipeFromScratch.main.bean;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table
+@Entity
 public class Store 
 {
 
+	@Id
+	@GeneratedValue
+	@Column
 	private int store_id;
+	@Column
 	private String store_name;
+	@Column
 	private String store_address;
+	@Column
 	private int pincode;
+	@Column
 	private int User_id;
+	@Column
 	private String contact_no;
 	
 	public Store() {

@@ -15,26 +15,23 @@ import org.springframework.web.bind.annotation.RestController;
 import com.recipeFromScratch.main.bean.User;
 import com.recipeFromScratch.main.dao.StoreDaoImpl;
 import com.recipeFromScratch.main.dao.UserDaoImpl;
+import com.recipeFromScratch.main.service.UserService;
 
 @RestController
 public class UserController 
 {
 	@Autowired
-	private UserDaoImpl Udao;
-	
-	@Autowired
-	private StoreDaoImpl Sdao;
-	
-	
+	private UserService Uservice;
 //add requestmethod
 	
 @PostMapping(value="/addUser")
 public @ResponseBody void addUser(@RequestBody User usr )
 {
-Udao.addUser(usr);
-//Sdao.addStore(usr.getStore());
-System.out.println(usr.getStore());
+
+	Uservice.addUser(usr);
 	System.out.println(usr);
+
+
 }
 
 //getall users list  requestmethod
@@ -43,7 +40,7 @@ System.out.println(usr.getStore());
 public ArrayList<User> getAllUser()
 {
 
-	return Udao.getAllUser();
+	return Uservice.getAllUsers();
 	
 }
 
@@ -51,11 +48,14 @@ public ArrayList<User> getAllUser()
 public void deleteUser(@PathVariable ("id") int id)
 {
 
-	 Optional<User> u =Udao.getById(id);
+	 Optional<User> u =Uservice.getById(id);
 	 
 	 User usr = u.get();
-	Sdao.deleteById(usr.getStore().getStore_id());
-	Udao.deleteById(id);
+	 Uservice.deleteUserById(usr.getUser_Id());
+
+	
+	
+
 }
 	
 	

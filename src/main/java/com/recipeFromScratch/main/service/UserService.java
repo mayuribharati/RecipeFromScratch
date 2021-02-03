@@ -1,23 +1,27 @@
 package com.recipeFromScratch.main.service;
 
 import java.util.ArrayList;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.recipeFromScratch.main.bean.User;
-import com.recipeFromScratch.main.dao.StoreDaoImpl;
-import com.recipeFromScratch.main.dao.UserDaoImpl;
+import com.recipeFromScratch.main.dao.StoreDao;
+//import com.recipeFromScratch.main.dao.StoreDaoImpl;
+import com.recipeFromScratch.main.dao.UserDao;
 
+@Service
 public class UserService 
 {
 
 	
 	@Autowired
-	private UserDaoImpl Udao;
+	private UserDao Udao;
 	
 	@Autowired
-	private StoreDaoImpl Sdao;
+	private StoreDao Sdao;
 	
 	//add user store asciciated eith it very first login
 	public void addUser(User usr)
@@ -30,7 +34,7 @@ public class UserService
 	//get all user
 	public ArrayList<User> getAllUsers()
 	{
-		return Udao.getAllUser();
+		return Udao.GetAllUser();
 	}
 	
 	
@@ -38,16 +42,15 @@ public class UserService
 	
 	public Optional<User> getById(int id)
 	{
-		return Udao.getById(id);
+		return Udao.GetById(id);
 	}
 	
 	//Delete User by Id
 	public void deleteUserById(int id)
 	{
-		Udao.deleteById(id);
+		Udao.DeleteById(id);
 	}
 	
 	
 	
-	
-}
+	}
